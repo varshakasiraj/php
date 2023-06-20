@@ -1,5 +1,6 @@
 <?php
-$site_url = "/php/productcart";
+include_once '../config/settings.php';
+$site_url = "/php/productcart/assets/image/";
 
 $css_url = "./assets/css/style.css";
 $icon_url = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
