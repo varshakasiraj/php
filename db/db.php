@@ -8,29 +8,30 @@ class db{
             echo"Failed to connect to MySQL - ".$this->connect->connect_error;
             die();
         }
+        
+    }
+    public function select_query($sqlquery){
+       
+       return $this->fetch_asso($sqlquery);
+    }
+    public function fetch_asso($sqlquery){
+        $result=array();     
+        $select_result =$this->connect->query($sqlquery);
+        while ($row =$select_result->fetch_assoc() ){
+             $result[]=$row;
+        }
+       return $result; 
+    }
+    public function insert(){
+        $insert_query= $this->get_insert();
+        if($this->connect->query($insert_query)==true)  {
+            echo"insert successfully";
+        } 
         else{
-            echo"connect successfully";
-           // die();
-        }
-    }
-    public function query(){
-        $dbquery='Select * from iteam';
-        $query = $this->connect->query($dbquery);
-        return($query);
-    }
-    public function fetch_asso($result){
-        $asso_result = array();
-        while($row = query(fetch_array(MYSQLI_ASSOC))){
-            /*foreach($row as $key =>$value){
-                echo $value;
-             }*/
-             $asso_result[]=$row;
-             //var_dump($row);
-             //die();
-        }
-        return $asso_result;
+            echo"Failed to connect to MySQL - ".$this->connect->connect_error;
+        }     
         
     }
 }
-
+ 
 ?>
