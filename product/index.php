@@ -1,8 +1,11 @@
 <?php
 include_once 'product.php';
-
-$products = $products_obj->getProducts();
-
+/*$insert=$products_obj->insertProduct("bag6.jifi","Trending","chessboard handbag","Totes are a casual style of handbag without a top closure,
+ideal for everything from travel to a day at the beach. Style editors at “Oprah”
+magazine recommend looking for a bag about the size of a cereal box to ensure you have enough 
+room.","$25.00");*/
+$insert=$products_obj->processPostProduct();
+$products = $products_obj->getProduct();
 echo "<link href='".$css_url."' rel='stylesheet' type='text/css'/>";
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -14,6 +17,37 @@ echo "<link href='".$css_url."' rel='stylesheet' type='text/css'/>";
 		<h1>Products</h1>
 		<h4>ShowCase your products in this beautiful shop section</h4>
 	</div>
+	<center>
+	<form id="product_input" method="POST" action="<?php $site_url."/product"?>">
+		<table>
+			<tr>
+				<td><label for="img" >img</label></td>
+				<td><input type="text" id="img" name="img"/></td>
+			</tr>
+			<tr>
+				<td><label for="title" >title</label></td>
+				<td><input type="text" id="title" name="title"/></td>
+			</tr>
+			<tr>
+				<td><label for="description_tag" >description_tag</label></td>
+				<td><input type="text" id="description_tag" name="description_tag"/></td>
+			</tr>
+			<tr>
+				<td><label for="description">description</label></td>
+				<td><input type="text" id="description" name="description"/></td>
+			</tr>
+			<tr>
+				<td><label for="price">price</label></td>
+				<td><input type="text" id="price" name="price"/></td>
+			</tr>
+			<tr >
+				<td colspan="1"></td>
+				<td><input type="submit" name="submit" value="submit"/></td>
+			</tr>
+		</table>
+		<input type="hidden" name="formaction"  value="insertProduct" />
+	</form>
+	</center>
 	<div class='container'>
 		<div class='wrapper'>
 			<?php

@@ -22,15 +22,15 @@ class db{
         }
        return $result; 
     }
-    public function insert(){
-        $insert_query= $this->get_insert();
-        if($this->connect->query($insert_query)==true)  {
-            echo"insert successfully";
-        } 
-        else{
-            echo"Failed to connect to MySQL - ".$this->connect->connect_error;
+    public function insert_query($insert_query){
+       
+        $insert_result= $this->connect->query($insert_query);
+        var_dump($insert_query);
+        die();
+        if($insert_result==false)  {
+            echo"Failed to insert to MySQL - ".$this->connect->connect_error;
         }     
-        
+        return true;
     }
 }
  

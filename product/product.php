@@ -2,24 +2,30 @@
 include_once '../config/settings.php';
 
 class product {
-    
-    public function getProducts(){
+    public function getProduct(){
         global $db;
         $products=$db->select_query("Select * from iteam");
         return $products;
     }
-    public function get_insert(){
-        $img="bag6.jifi";
-        $title="Trending";
-        $description_tag="chessboard handbag";
-        $description="Totes are a casual style of handbag without a top closure,
-        ideal for everything from travel to a day at the beach. Style editors at “Oprah”
-        magazine recommend looking for a bag about the size of a cereal box to ensure you have enough 
-        room.";
-        $price="$25.00";
-        $insert_query= "insert into iteam(img,title,description_tag,description,price)"."values(
-            '$img','$title','$description_tag','$description','$price')";
+    public function insertProduct($insert_input){
+        global $db;
+        $insert_query= $db->insert_query("insert into iteam(img,title,description_tag,description,price)"."values(
+            $insert_input)");    
         return $insert_query;
+    }
+    public function processPostProduct(){
+        global $_POST;
+        if(!empty($_POST['formaction']) && $_POST['formaction']=="insertProduct"){
+            
+            $img=$_POST['img'];
+            $title=$_POST['title'];
+            $description_tag=$_POST['description_tag'];
+            $description=$_POST['description'];
+            $price=$_POST['price'];
+            $insert_input="'$img,'" . "'$title,'"."'$description_tag,'"."'$description,'"."'$price'";
+        }
+        return $this->insertProduct($insert_input) ;
+
     }
 }
 $products_obj = new product();
