@@ -25,8 +25,6 @@ class db{
     public function insert_query($insert_query){
        
         $insert_result= $this->connect->query($insert_query);
-        var_dump($insert_query);
-        die();
         if($insert_result==false)  {
             echo"Failed to insert to MySQL - ".$this->connect->connect_error;
         }     

@@ -17,37 +17,40 @@ echo "<link href='".$css_url."' rel='stylesheet' type='text/css'/>";
 		<h1>Products</h1>
 		<h4>ShowCase your products in this beautiful shop section</h4>
 	</div>
-	<center>
-	<form id="product_input" method="POST" action="<?php $site_url."/product"?>">
-		<table>
-			<tr>
-				<td><label for="img" >img</label></td>
-				<td><input type="text" id="img" name="img"/></td>
-			</tr>
-			<tr>
-				<td><label for="title" >title</label></td>
-				<td><input type="text" id="title" name="title"/></td>
-			</tr>
-			<tr>
-				<td><label for="description_tag" >description_tag</label></td>
-				<td><input type="text" id="description_tag" name="description_tag"/></td>
-			</tr>
-			<tr>
-				<td><label for="description">description</label></td>
-				<td><input type="text" id="description" name="description"/></td>
-			</tr>
-			<tr>
-				<td><label for="price">price</label></td>
-				<td><input type="text" id="price" name="price"/></td>
-			</tr>
-			<tr >
-				<td colspan="1"></td>
-				<td><input type="submit" name="submit" value="submit"/></td>
-			</tr>
-		</table>
-		<input type="hidden" name="formaction"  value="insertProduct" />
-	</form>
-	</center>
+	
+	<div class="input_form">
+		<center>
+			<form id="product_input" method="POST" action="<?php $site_url."/product"?>" enctype="multipart/form-data">
+				<table>
+					<tr>
+						<td><label for="img" >img</label></td>
+						<td><input type="file" id="img" name="img"/></td>
+					</tr>
+					<tr>
+						<td><label for="title" >title</label></td>
+						<td><input type="text" id="title" name="title"/></td>
+					</tr>
+					<tr>
+						<td><label for="description_tag" >description_tag</label></td>
+						<td><input type="text" id="description_tag" name="description_tag"/></td>
+					</tr>
+					<tr>
+						<td><label for="description">description</label></td>
+						<td><textarea name="description" id="description"></textarea></td>
+					</tr>
+					<tr>
+						<td><label for="price">price</label></td>
+						<td><input type="text" id="price" name="price"/></td>
+					</tr>
+					<tr >
+						<td colspan="1"></td>
+						<td><input type="submit" name="submit" value="submit"/></td>
+					</tr>
+				</table>
+				<input type="hidden" name="formaction"  value="insertProduct" />
+			</form>
+		</center>
+    </div>
 	<div class='container'>
 		<div class='wrapper'>
 			<?php
