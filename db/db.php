@@ -30,6 +30,20 @@ class db{
         }     
         return true;
     }
+    public function update_query($update_query){
+        $update= $this->connect->query($update_query);
+        if($update==false)  {
+            echo"Failed to update to MySQL - ".$this->connect->connect_error;
+        }     
+        return true;
+    }
+    public function delete_query($delete_query){
+        $delete=$this->connect->query($delete_query);
+        if($delete==false)  {
+            echo"Failed to update to MySQL - ".$this->connect->connect_error;
+        }     
+        return true;
+    }
 }
  
 ?>
