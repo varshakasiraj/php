@@ -29,7 +29,7 @@ class product
         global $_FILES;
         global $errors;
         global $db;
-        if (!empty($_POST['formupdate']) && $_POST['formupdate'] == "updateProduct") {
+        if (!empty($_POST['formaction']) && $_POST['formaction'] == "updateProduct") {
             $errors = array();
             global $asset_uri, $error;
             $error = array(
