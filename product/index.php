@@ -21,23 +21,23 @@ echo "<link href='" . $css_url . "' rel='stylesheet' type='text/css'/>";
 				<div class="card">
 					<div class="image">
 						<?php
-						echo "<img src=" . $iteam["img"] . " alt='bag'/>";
+						echo "<img src="  . $iteam["img"]   . " alt='bag'/>";
 						?>
 					</div>
 					<div class="title">
 						<?php
-						echo "<h4>" . $iteam["title"] . "</h4>";
+						echo "<h4>"  . $iteam["title"]   . "</h4>";
 						?>
 					</div>
 					<div class="description">
 						<?php
-						echo "<h3>" . $iteam["description_tag"] . "</h3>";
-						echo " <p>" . $iteam["description"] . "</p>";
+						echo "<h3>"   . $iteam["description_tag"]   . "</h3>";
+						echo " <p>"   . $iteam["description"]   . "</p>";
 						?>
 					</div>
 					<div class="price">
 						<?php
-						echo "<h3>$" . $iteam["price"] . "</h3>";
+						echo "<h3><span>&#8377;</span> " . $iteam["price"] . "</h3>";
 						?>
 						<i class="fa fa-cart-shopping"></i>
 					</div>
@@ -46,11 +46,11 @@ echo "<link href='" . $css_url . "' rel='stylesheet' type='text/css'/>";
 					</div>
 					<div class="template">
 						<?php 
-							echo"<a href='edit.php?id=".$iteam["id"]."''style='text-decoration: none;'>
+							echo"<a href='edit.php?id="  .$iteam["id"]  ."''style='text-decoration: none;' class='edit'>
 							<button>Edit</button></a>";
 						?>
 						<?php 
-							echo"<a href='delete.php?id=".$iteam["id"]."''style='text-decoration: none;'>
+							echo"<a href='delete.php?id="  .$iteam["id"]  ."''style=';' class='delete'>
 							<button>Delete</button></a>";
 						?>
 			        </div>
@@ -61,7 +61,7 @@ echo "<link href='" . $css_url . "' rel='stylesheet' type='text/css'/>";
 		</div>
 		<div class="input_form">
 		<center>
-			<form id="product_input" method="POST" action="<?php $site_url . "/product" ?>"
+			<form id="product_input" method="POST" action="<?php $site_url   . "/product" ?>"
 				enctype="multipart/form-data">
 				<table>
 					<tr>
@@ -94,7 +94,7 @@ echo "<link href='" . $css_url . "' rel='stylesheet' type='text/css'/>";
 			<?php
 			if (!empty($insert_product['errors'])) {
 				foreach ($insert_product['errors'] as $error) {
-					echo "<h5 style='color:red'>" . $error . "</h5><br>";
+					echo "<h5 style='color:red'>"   . $error    . "</h5><br>";
 				}
 			} ?>
 		</center>

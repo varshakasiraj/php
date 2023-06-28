@@ -92,6 +92,10 @@ body{
 	display:flex;
     justify-content:space-between;
 	align-items:center;
+	content:#20B9;
+}
+.container .wrapper .card .price h3{
+	content: "\20B9\";
 }
 .container .wrapper .card .buy button{
 	display:block;
@@ -113,9 +117,15 @@ body{
 	width:90px;
     height:30px;
     color:white;
-	border-color:rgb(225,69,0);
+	text-decoration: none;
 	border-radius:10px;
+    
+}
+.container .wrapper .card .template  .edit{
     background-color:#77DEDD;
+}
+.container .wrapper .card .template  .delete{
+	background-color:red;
 }
 .container .wrapper .card img:hover{
 	transform:scaleX(-1);

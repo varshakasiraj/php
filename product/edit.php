@@ -2,7 +2,7 @@
 include_once 'product.php';
 
 global $products_obj;
-if(empty($_GET['id'])){
+if(empty( $_GET['id'] ) ){
     echo die();
 }else{
     $id = $_GET['id'];
@@ -51,7 +51,7 @@ if(!empty($_POST['formupdate']) && $_POST['formupdate'] == "updateProduct") {
 			}
 			if (!empty($update['errors'])) {
 				foreach ($update['errors'] as $error) {
-					echo "<h5 style='color:red'>" . $error . "</h5><br>";
+					echo "<h5 style='color:red'>"   . $error   . "</h5><br>";
 				}
 			} 
             ?>

@@ -47,10 +47,10 @@ class product
             if (empty($description_tag) && !preg_match("/^[a-z A-Z \s]{15,25}/", $description_tag)) {
                 $errors[] = $error["description_tag"];
             }
-            if(empty($description) && !preg_match("/^[a-z A-Z \s]*/", $description)){
+            if(empty($description)  &&  !preg_match("/^[a-z A-Z \s]*/", $description)){
                 $errors[] = $error["description"];
             }
-            if (empty($title) && !preg_match("/^[a-z A-Z]{8,10}/", $title)) {
+            if (empty($title)  &&  !preg_match("/^[a-z A-Z]{8,10}/", $title)) {
                 $errors[] = $error["title"];
             }
             if (empty($price) && !is_float($price)) {
@@ -69,7 +69,7 @@ class product
         global $_POST;
         global $_FILES;
         global $errors;
-        if (!empty($_POST['formaction']) && $_POST['formaction'] == "insertProduct") {
+        if (!empty($_POST['formaction'])  &&  $_POST['formaction'] == "insertProduct") {
             $errors = array();
             global $asset_uri, $error;
             $error = array(
@@ -96,9 +96,9 @@ class product
             if (empty($price) && !is_float($price)) {
                 $errors[] = $error["price"];
             }
-           // $insert_input = "'$img'," . "'$title'," . "'$description_tag'," . "'$description'," . "'$price'";
+           $insert_input = "'$img',"  . "'$title',"   . "'$description_tag',"    . "'$description',"   . "'$price'";
             return [
-               // "sucess" => $this->insertProduct($insert_input),
+               "sucess" => $this->insertProduct($insert_input),
                 "errors" => $errors
             ];
         }
@@ -119,9 +119,9 @@ class product
         $extension = substr(strrchr($basename, '.'), 1);
         if (!empty($image) && in_array($extension, $allowed_img_extension)) {
             $path = $_FILES['img']['tmp_name'];
-            $image_path = $asset_uri."\image\products\\" . $basename;
+            $image_path = $asset_uri."\image\products\\"   . $basename;
             move_uploaded_file($path, $image_path);
-            $img_path='/php/assets/image/products/'.$basename;
+            $img_path = '/php/assets/image/products/'  .$basename;
         } else {
             $errors[]=$error['img'];
         }
