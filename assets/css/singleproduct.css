@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family:montserrat-semiBold;
+    src :url(../font/montserrat/Montserrat-SemiBold.ttf) format(truetype);
+  }
+  @font-face {
+    font-family:PFDinTextPro-MedItalic;
+    src :url(../font/pfdin/PFDinTextPro-MedItalic.ttf) format(truetype);
+  }
+  @font-face {
+    font-family:roboto-bold;
+    src :url(../font/roboto/Roboto-Bold.ttf) format(turetype);
+  }
+.container{
+    max-width:900px;
+	height:100%;
+	margin:0 auto;
+    display: flex;
+}
+.container .card{
+    background-color:#FFFFFF;
+	width:230px;
+	height:640px;
+	border-radius:5px;
+    padding:5px 15px 10px;
+	margin-bottom:40px;
+}
+.container .card .image{
+	margin:-15px 15px 0px;
+	width:200px;
+	height:300px;
+	box-shadow: 3px 2px 5px  grey; 
+	
+}
+.container .card .image img{
+	width:100%;
+	height:100%;
+	object-fit:fill;
+	opacity:78%;
+}
+.container .card .title h4{
+	font-family:montserrat-semiBold;
+	text-align:center;
+	color:#E7346E;
+	text-transform:uppercase;
+}
+.container .card .description h3{
+	font-family:PFDinTextPro-MedItalic;
+	text-align:center;
+	color:rgb(65,76,91);
+    font-size: 50px;
+	margin-bottom:10px;
+}
