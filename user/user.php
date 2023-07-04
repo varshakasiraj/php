@@ -158,9 +158,27 @@ class User{
             echo"Invalid user or password";
           }
           else{
+            
             echo"Sucess";
+            $name = $view[0]["name"];
+            $id = $view[0]["id"];
+            setcookie("cookie_id",$id,time() + (86400));
+            setcookie("cookie_name",$name,time() + (86400));
+           header("location:http://localhost/php/product/");
+            //var_dump($this->getCookieName());
           }
       }
-      }
+      
+    }
+    public function logout(){
+       if (isset($_COOKIE["cookie_name"]) && isset($_COOKIE["cookie_id"])){
+          setcookie("cookie_name", '', time() - (3600));
+          setcookie("cookie_id", '', time() - (3600));
+        } 
+    }
+    
+    public function getCookieName(){
+      var_dump($_COOKIE);
+    }
 }
 $user = new User();
