@@ -20,8 +20,8 @@ class User{
     {
         global $db;
         $iteam_id = $id;
-        $products = $db->select_query("Select * from user where id = ".$iteam_id);
-        return $products;
+        $user = $db->select_query("Select * from user where id = ".$iteam_id);
+        return $user;
     }
     public function processInputUser(){
         global $_POST;
@@ -51,7 +51,7 @@ class User{
             ];
         }
     }
-    public function processUpdateProduct($id){
+    public function processUpdateUser($id){
       global $_POST;
       global $_FILES;
       global $errors,$db;
@@ -74,7 +74,7 @@ class User{
             "errors"=>$errors
           ];
       }
-      public function deleteProduct($id){
+      public function deleteUser($id){
         global $db;
         $delete_query = $db->delete_query("delete from user where id = ".$id);
         return $delete_query;
@@ -162,23 +162,35 @@ class User{
             echo"Sucess";
             $name = $view[0]["name"];
             $id = $view[0]["id"];
-            setcookie("cookie_id",$id,time() + (86400));
+            setcookie("user_id",$id,time() + (86400));
             setcookie("cookie_name",$name,time() + (86400));
-           header("location:http://localhost/php/product/");
+            header("location:http://localhost/php/user/login.php");
             //var_dump($this->getCookieName());
           }
       }
       
     }
     public function logout(){
-       if (isset($_COOKIE["cookie_name"]) && isset($_COOKIE["cookie_id"])){
-          setcookie("cookie_name", '', time() - (3600));
-          setcookie("cookie_id", '', time() - (3600));
+       if (isset($_COOKIE["user_name"]) && isset($_COOKIE["user_id"])){
+          setcookie("user_name", '', time() - (3600));
+          setcookie("user_id", '', time() - (3600));
         } 
+        header("location:http://localhost/php/user/");
     }
-    
-    public function getCookieName(){
-      var_dump($_COOKIE);
+    public function getCurrentUser(){
+     $view= $this->getProcessUser($_COOKIE["user_id"]);
+     return$view[0]["name"];
     }
+    public function check(){
+      global $db;
+      $user = isset($_COOKIE["user_name"]) ;
+      $id= isset($_COOKIE["user_id"]);
+      //$view= $this->getProcessUser($_COOKIE["user_id"]);
+      $check =$db->select_query("SELECT * FROM user where name='$user' AND id=$id");
+      if(!empty($check)){
+        header("location:http://localhost/php/user/login.php");
+      }
+    }
+
 }
 $user = new User();

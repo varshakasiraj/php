@@ -1,0 +1,58 @@
+body{
+    margin: 0; 
+    padding: 0;
+}
+.header_container{
+    display: flex;
+    justify-content: space-between;
+    background-color:black;
+    height: 60px;
+}
+.header_container .logo img{
+    height: 70px;
+    width:100px;
+}
+.header_container .element{
+    display: flex;
+}
+.header_container .element .button{
+    width: 90px;
+    height: 30px;
+    background-color: orange;
+    margin-right: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    position: relative;
+}
+.header_container .element .button a{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    left: 30px;
+    top:8px;
+}
+.header_container .element .cricle{
+    width: 35px;
+    height: 35px;
+    background-color: orange;
+    margin-right: 10px;
+    border-radius: 50px;
+    margin-top: 12px;
+}
+
+.header_container .element .cricle i{
+    color: white;
+    padding: 11px;
+}
+.header_container .element .textname{
+    width: 90px;
+    height: 30px;
+    background-color: orange;
+    margin-right: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    position: relative;
+}
+.header_container .element .textname h4{
+    color: white;
+}

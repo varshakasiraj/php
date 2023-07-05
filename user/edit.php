@@ -10,7 +10,7 @@ if(empty( $_GET['id'] ) ){
 $user = $user->getProcessUser($id);
 
 if(!empty($_POST['formaction']) && $_POST['formaction'] == "updateUser") {
-    $update = $user->processUpdateProduct($id);
+    $update = $user->processUpdateUser($id);
 }
 ?>
 <div class="update_form">

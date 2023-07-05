@@ -7,7 +7,7 @@ if(empty($_GET[ 'id' ]) ){
     $id = $_GET['id'];
 }
 
-$user= $user->deleteProduct($id);
+$user= $user->deleteUser($id);
 if($user == true){
     echo"deleted sucessfully";
 }
